@@ -1,0 +1,57 @@
+
+version: 2
+sources:
+  - name: raw
+    schema: gz_raw_data
+    description: Greenweez raw data source 
+    tables:
+      - name: sales
+        identifier: raw_gz_sales
+        description: Greenweez sales with one row with orders id and products id associated to
+        columns:
+          - name: date_date
+            description: date when each order is made
+          - name: orders_id
+            description: foreign key
+            tests:
+              - not unique 
+              - not null 
+          - name: pdt_id
+            description: foreign key
+            tests:
+              - not unique 
+              - not null
+          - name: revenue
+            description: revenue made for each order and product
+          - name: quantity
+            description: quantity made for each order and product
+      - name: product
+        identifier: raw_gz_product
+        description: Purchase price for each product id 
+        columns:
+          - name: products_id
+            description: primary key
+            tests:
+            - unique 
+            - not null 
+          - name: purchSE_PRICE
+            description: purchase price for each products
+
+      - name: ship
+        identifier: raw_gz_ship
+        description: Cost and fee associated with each order id 
+        columns:
+          - name: orders_id
+            description: primary key
+            tests:
+            - unique 
+            - not null 
+          - name: shipping_fee
+            description: amount that's charged a customer for each order 
+          - name: shipping_fee1
+            description: amount that's charged a customer for each order (not used)
+          - name: logCost
+            description: logistic cost for each order 
+          - name: ship_cost
+            description: ship cost for each order   
+
