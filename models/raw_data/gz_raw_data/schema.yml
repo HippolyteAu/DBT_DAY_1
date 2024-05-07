@@ -14,13 +14,11 @@ sources:
           - name: orders_id
             description: foreign key
             tests:
-              - not unique 
-              - not null 
+              - not_null
           - name: pdt_id
             description: foreign key
             tests:
-              - not unique 
-              - not null
+              - not_null
           - name: revenue
             description: revenue made for each order and product
           - name: quantity
@@ -33,7 +31,7 @@ sources:
             description: primary key
             tests:
             - unique 
-            - not null 
+            - not_null 
           - name: purchSE_PRICE
             description: purchase price for each products
 
@@ -45,7 +43,7 @@ sources:
             description: primary key
             tests:
             - unique 
-            - not null 
+            - not_null 
           - name: shipping_fee
             description: amount that's charged a customer for each order 
           - name: shipping_fee1
@@ -54,4 +52,3 @@ sources:
             description: logistic cost for each order 
           - name: ship_cost
             description: ship cost for each order   
-
